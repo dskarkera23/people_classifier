@@ -41,15 +41,16 @@ function DropzoneComponent({ setResult, setError, setImageData }) {
   }, [setResult, setError, setImageData]);
 
   return (
-    <div>
-      <form ref={dropzoneRef} id="dropzone" className="dropzone">
-        <div className="dz-message needsclick">
-          <img src="./images/upload.png" width="50vw" height="50vw" alt="Upload" />
-          <br />
-          <span className="note needsclick">Drop files here or click to upload</span>
-        </div>
-      </form>
+    <div className="mt-4">
+  <form ref={dropzoneRef} id="dropzone" className="dropzone flex flex-col items-center justify-center">
+    <div className="dz-message needsclick flex flex-col items-center justify-center text-center">
+      <img src="./images/upload.png" width="50vw" height="50vw" alt="Upload" />
+      <br />
+      <span className="note needsclick">Drop files here or click to upload</span>
     </div>
+  </form>
+</div>
+
   );
 }
 
