@@ -1,0 +1,8 @@
+version			accuracy  model
+			val test  
+v1			59  80    lr
+v2.1			60  80	  svm
+v2.2			70  96    lr
+v3.1			81  81    lr rs=0
+v3.2			76  72    svm rs=0
+v3.3			73  90    svm rs=23

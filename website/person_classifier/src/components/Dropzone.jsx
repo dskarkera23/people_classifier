@@ -1,0 +1,56 @@
+import React, { useEffect, useRef } from 'react';
+import Dropzone from 'dropzone';
+import 'dropzone/dist/dropzone.css';  // Ensure Dropzone CSS is imported
+
+function DropzoneComponent({ setResult, setError, setImageData }) {
+  const dropzoneRef = useRef(null);
+
+  useEffect(() => {
+    if (Dropzone.instances.length > 0) {
+      Dropzone.instances.forEach((dz) => dz.destroy());
+    }
+
+    const dz = new Dropzone(dropzoneRef.current, {
+      url: "http://localhost:5000/classify_image",
+      maxFiles: 1,
+      addRemoveLinks: true,
+      autoProcessQueue: false,
+      dictDefaultMessage: "Drop files here or click to upload",
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    dz.on("addedfile", (file) => {
+      console.log("File added:", file);
+      setImageData(file);
+    });
+
+    dz.on("error", (file, errorMessage) => {
+      console.error("Upload error:", errorMessage);
+      setError("An error occurred while uploading the image.");
+    });
+
+    dz.on("sending", (file) => {
+      console.log("Uploading file:", file);
+    });
+
+    return () => {
+      dz.destroy();
+    };
+  }, [setResult, setError, setImageData]);
+
+  return (
+    <div>
+      <form ref={dropzoneRef} id="dropzone" className="dropzone">
+        <div className="dz-message needsclick">
+          <img src="./images/upload.png" width="50vw" height="50vw" alt="Upload" />
+          <br />
+          <span className="note needsclick">Drop files here or click to upload</span>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default DropzoneComponent;
