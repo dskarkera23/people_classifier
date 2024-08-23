@@ -11,6 +11,10 @@ node_modules
 dist
 dist-ssr
 *.local
+.ipynb_checkpoints
+dataset
+website/test_images
+server/test_images
 
 # Editor directories and files
 .vscode/*
