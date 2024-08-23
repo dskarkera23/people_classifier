@@ -10,7 +10,7 @@ CORS(app)
 def classify_image():
     app.logger.info("Received request")
     try:
-        data = request.json
+        data = request.get_json()
         
         app.logger.info(data,type(data))
         app.logger.info("Request data: %s", data)
@@ -21,13 +21,13 @@ def classify_image():
             return jsonify({'error': 'No image data provided'}), 400
 
         # Strip out base64 data if necessary
-        image_data = image_data.split(',')[1] if ',' in image_data else image_data
+        #image_data = image_data.split(',')[1] if ',' in image_data else image_data
         
         # Decode base64 to binary
-        image_binary = base64.b64decode(image_data)
+        #image_binary = base64.b64decode(image_data)
         
         # Process the image binary data with your function
-        result = util.classify_image(image_binary)
+        result = util.classify_image(image_data)
         app.logger.info("Classification result: %s", result)
 
         return jsonify(result)
