@@ -37,6 +37,6 @@ def classify_image():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == "__main__":
-    app.logger.info("Starting Python Flask Server For Sports Celebrity Image Classification")
+    app.logger.info("Starting Python Flask Server For Person Classification")
     util.load_saved_artifacts()
     app.run(port=5000)
