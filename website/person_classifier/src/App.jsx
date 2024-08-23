@@ -50,7 +50,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 flex flex-col items-center overflow-x-hidden">
+    <div className="min-h-screen w-screen bg-gray-100 flex flex-col items-center overflow-x-hidden">
       <nav className="navbar p-4 w-full">
         <h1 className="text-2xl font-bold text-gray-800">Person Classifier</h1>
       </nav>
