@@ -47,9 +47,9 @@ A React webpage provides an interface where users can upload images and view cla
 ### Run the Flask server:
 
 ```bash
-python app.py
+python server.py
 ```
-### Navigate to the React project directory, install dependencies, and start the frontend:
+### Navigate to the React project directory i.e website/person_classifier, install dependencies, and start the frontend:
 
 ```bash
 npm install
