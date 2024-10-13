@@ -4,7 +4,7 @@ This project uses OpenCV and machine learning techniques to classify a provided 
 
 ## Project Overview
 
-- **Classifier**: One-Class SVM Model
+- **Classifier**: SVM Model
 - **Image Processing**: Haar Cascades, Wavelet Transform
 - **Tech Stack**: OpenCV, Flask, React
 
